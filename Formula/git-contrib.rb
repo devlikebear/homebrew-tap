@@ -2,15 +2,15 @@ class GitContrib < Formula
   desc "Git multi-repo developer contribution analyzer with HTML reports"
   homepage "https://github.com/devlikebear/git-contrib"
   license "MIT"
-  version "0.1.0"
+  version "0.2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/devlikebear/git-contrib/releases/download/v0.1.0/git-contrib-v0.1.0-darwin-arm64.tar.gz"
-      sha256 "9c5e40f14cadf2c5c6b49cea583779ad08b4340e0e801c9fb0c0ef946ad9732a"
+      url "https://github.com/devlikebear/git-contrib/releases/download/v0.2.0/git-contrib-v0.2.0-darwin-arm64.tar.gz"
+      sha256 "775e7f5c8d7458dcf6a2894545a6345878e51ba889bce611b5e98d2f96ce0a9e"
     elsif Hardware::CPU.intel?
-      url "https://github.com/devlikebear/git-contrib/releases/download/v0.1.0/git-contrib-v0.1.0-darwin-amd64.tar.gz"
-      sha256 "022557900c1862c7134c521ddc43633f5bb1bb1e78c8a808a81d245a7552fe36"
+      url "https://github.com/devlikebear/git-contrib/releases/download/v0.2.0/git-contrib-v0.2.0-darwin-amd64.tar.gz"
+      sha256 "4be6fddb2867f921e952ab2a2da39bd9915d90ef069ae707abf4f039adb1ee78"
     end
   end
 
