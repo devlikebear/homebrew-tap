@@ -1,15 +1,15 @@
 class Tars < Formula
   desc "Local-first automation runtime written in Go"
   homepage "https://github.com/devlikebear/tars"
-  version "0.32.40"
+  version "0.32.41"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/devlikebear/tars/releases/download/v0.32.40/tars_0.32.40_darwin_arm64.tar.gz"
-      sha256 "111c99cd7886de9a6a08042672334a83b7e44bfbdd2e9943012ea51cbb71d4ec"
+      url "https://github.com/devlikebear/tars/releases/download/v0.32.41/tars_0.32.41_darwin_arm64.tar.gz"
+      sha256 "8bee726a61cfd2de87c034187eab5627fd966076af23e50660df291f1af6f15f"
     else
-      url "https://github.com/devlikebear/tars/releases/download/v0.32.40/tars_0.32.40_darwin_amd64.tar.gz"
-      sha256 "6c9b9a2f704fbde96776808ea8780f1dad2313203f1eb893c242f1dd9a911a05"
+      url "https://github.com/devlikebear/tars/releases/download/v0.32.41/tars_0.32.41_darwin_amd64.tar.gz"
+      sha256 "2c6011e20e9405d95da2e1da4b82ba6555f3e01bc246e3f3063fa117623c9fc1"
     end
   end
 
