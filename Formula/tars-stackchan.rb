@@ -5,12 +5,12 @@
 class TarsStackchan < Formula
   desc "MCP bridge and local control UI for M5Stack Stack-chan"
   homepage "https://github.com/devlikebear/tars-stackchan"
-  version "0.1.1"
+  version "0.1.2"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/devlikebear/tars-stackchan/releases/download/v0.1.1/tars-stackchan_0.1.1_darwin_amd64.tar.gz"
-      sha256 "a2ca676f019cccb2612721a439e9c961bf69764918f3c61cb7020bb47c31fb51"
+      url "https://github.com/devlikebear/tars-stackchan/releases/download/v0.1.2/tars-stackchan_0.1.2_darwin_amd64.tar.gz"
+      sha256 "90bb92d55e41e319dc89b25059234151f7c3407ea90ab16e4543bfda7bb987a5"
 
       define_method(:install) do
         libexec.install "tars-stackchan-mcp"
@@ -22,8 +22,8 @@ class TarsStackchan < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/devlikebear/tars-stackchan/releases/download/v0.1.1/tars-stackchan_0.1.1_darwin_arm64.tar.gz"
-      sha256 "8c0a811d65359d75b38a69fb8d3dc1513eee1052486a694cd1cdc9559144fe4f"
+      url "https://github.com/devlikebear/tars-stackchan/releases/download/v0.1.2/tars-stackchan_0.1.2_darwin_arm64.tar.gz"
+      sha256 "a4352e6f08f3e886f77ca559d7dda4eee4df4232bf94feb8a1e3a71e1f08b031"
 
       define_method(:install) do
         libexec.install "tars-stackchan-mcp"
@@ -38,8 +38,8 @@ class TarsStackchan < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/devlikebear/tars-stackchan/releases/download/v0.1.1/tars-stackchan_0.1.1_linux_amd64.tar.gz"
-      sha256 "37959e8e805ea806298bfa284c15e76d2d6e1c88449c8c63cbd60ed9e829a652"
+      url "https://github.com/devlikebear/tars-stackchan/releases/download/v0.1.2/tars-stackchan_0.1.2_linux_amd64.tar.gz"
+      sha256 "f05003bf17987b53640e4427ccb1d2ca5d5036f22e0a691d302b3bbcd2e26108"
       define_method(:install) do
         libexec.install "tars-stackchan-mcp"
         libexec.install "tars-stackchan-control"
@@ -50,8 +50,8 @@ class TarsStackchan < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/devlikebear/tars-stackchan/releases/download/v0.1.1/tars-stackchan_0.1.1_linux_arm64.tar.gz"
-      sha256 "12a4544ad2f913429158e4e1a4089ac90943c15d6896a3b8e8954255236465ef"
+      url "https://github.com/devlikebear/tars-stackchan/releases/download/v0.1.2/tars-stackchan_0.1.2_linux_arm64.tar.gz"
+      sha256 "3ba1fb66e27438abc66fc2a2c6375b8ea70a8ca03c8637f4d8ba18e77a7c6dad"
       define_method(:install) do
         libexec.install "tars-stackchan-mcp"
         libexec.install "tars-stackchan-control"
