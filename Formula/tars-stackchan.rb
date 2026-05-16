@@ -5,12 +5,12 @@
 class TarsStackchan < Formula
   desc "MCP bridge and local control UI for M5Stack Stack-chan"
   homepage "https://github.com/devlikebear/tars-stackchan"
-  version "0.2.0"
+  version "0.2.1"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/devlikebear/tars-stackchan/releases/download/v0.2.0/tars-stackchan_0.2.0_darwin_amd64.tar.gz"
-      sha256 "08c3ce9d3ad04739b559d4f1a9fdca0b072e841fa467df2b6f03a9696b99d480"
+      url "https://github.com/devlikebear/tars-stackchan/releases/download/v0.2.1/tars-stackchan_0.2.1_darwin_amd64.tar.gz"
+      sha256 "1b9d1d6080a441e4c3daf34ca89f87cfbdd2fb85d8f0a057f88a5d192530894c"
 
       define_method(:install) do
         libexec.install "tars-stackchan-mcp"
@@ -22,8 +22,8 @@ class TarsStackchan < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/devlikebear/tars-stackchan/releases/download/v0.2.0/tars-stackchan_0.2.0_darwin_arm64.tar.gz"
-      sha256 "7436e57aaeeb89a67c44fa03e6051a3f471fd4c136c75bad9d51292234d12e71"
+      url "https://github.com/devlikebear/tars-stackchan/releases/download/v0.2.1/tars-stackchan_0.2.1_darwin_arm64.tar.gz"
+      sha256 "aa32d3bfbd430b6169035f23e8d4c2478eaa8064cae1ef65ec68968f098f63f9"
 
       define_method(:install) do
         libexec.install "tars-stackchan-mcp"
@@ -38,8 +38,8 @@ class TarsStackchan < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/devlikebear/tars-stackchan/releases/download/v0.2.0/tars-stackchan_0.2.0_linux_amd64.tar.gz"
-      sha256 "8ba8b28fea3abd5924199d3c65f2f1be5a82c277ff454e6ac853e9b66fb3ef55"
+      url "https://github.com/devlikebear/tars-stackchan/releases/download/v0.2.1/tars-stackchan_0.2.1_linux_amd64.tar.gz"
+      sha256 "d746cada54c310961816b8678abc9cacc4d473a3cd2a0e73f5ca22955a674e95"
       define_method(:install) do
         libexec.install "tars-stackchan-mcp"
         libexec.install "tars-stackchan-control"
@@ -50,8 +50,8 @@ class TarsStackchan < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/devlikebear/tars-stackchan/releases/download/v0.2.0/tars-stackchan_0.2.0_linux_arm64.tar.gz"
-      sha256 "67292b2d01d578e5b7a7ad1a5dfc6232178cd91ec34b6429912a307490a0bff1"
+      url "https://github.com/devlikebear/tars-stackchan/releases/download/v0.2.1/tars-stackchan_0.2.1_linux_arm64.tar.gz"
+      sha256 "880c18590319755266e38f46f51b32e312253bd7b3016ecb5704d355d97b575b"
       define_method(:install) do
         libexec.install "tars-stackchan-mcp"
         libexec.install "tars-stackchan-control"
@@ -72,14 +72,19 @@ class TarsStackchan < Formula
       The stackchan_upload_firmware tool is hidden unless TARS_STACKCHAN_ENABLE_FIRMWARE_TOOLS=1 is set.
       Run tars-stackchan-mcp doctor before allowing an agent to flash hardware.
 
-      Start the Gemini TTS relay as a background service:
-        export TARS_STACKCHAN_TOKEN="<local-token>"    # same token baked into the firmware MOD
-        export GEMINI_API_KEY="<google-ai-studio-key>" # or TARS_STACKCHAN_GEMINI_API_KEY
-        brew services start tars-stackchan
+      Start the Gemini TTS relay as a background service. launchd does NOT
+      read your shell profile, so the secrets must be set in the launchd
+      session (a plain `export` is not enough):
+        launchctl setenv TARS_STACKCHAN_TOKEN "<local-token>"     # firmware MOD token
+        launchctl setenv GEMINI_API_KEY "<google-ai-studio-key>"  # or TARS_STACKCHAN_GEMINI_API_KEY
+        brew services restart tars-stackchan
+      launchctl setenv does not persist across reboot; to make it permanent,
+      run those two setenv lines from a login item (e.g. a per-user
+      LaunchAgent that runs at login) before the service starts.
       The relay advertises tars-stackchan-tts.local over mDNS, so the device
       finds the current relay IP at boot without a re-flash. If mDNS does not
       resolve on your network, re-flash with TARS_STACKCHAN_TTS_HOST=<mac-ip>.
-      Check it with: tars-stackchan-control tts status
+      Verify with: tars-stackchan-control tts status  (or tars-stackchan-mcp doctor)
     EOS
   end
 
