@@ -1,6 +1,6 @@
 cask "linetta" do
-  version "0.2.0"
-  sha256 "c0e9cdf47526317008625e597d9b0f802b7423a033dd2a5c74cc91a59aa53089"
+  version "0.2.1"
+  sha256 "a35d4aee2dc5f134d627f7975a1e4adde486b1387e9f00d5ddcb9ca4657697fe"
 
   url "https://github.com/devlikebear/linetta/releases/download/v#{version}/Linetta-macos.app.tar.gz"
   name "Linetta"
@@ -24,9 +24,5 @@ cask "linetta" do
     it on first launch. To allow it to run, clear the quarantine attribute:
 
       xattr -dr com.apple.quarantine "#{appdir}/Linetta.app"
-
-    Or install without quarantine in the first place:
-
-      brew install --cask --no-quarantine linetta
   CAVEATS
 end
