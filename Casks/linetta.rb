@@ -1,6 +1,6 @@
 cask "linetta" do
-  version "0.4.2"
-  sha256 "e2dd6203fad95457e1ef35315528f202b7d91bc83e90085177f109457df0b880"
+  version "0.4.3"
+  sha256 "bd1422c15016272126cd0fb6a9c7e4e7f44cc4a41665e9c08f5a94db88af382c"
 
   url "https://github.com/devlikebear/linetta/releases/download/v#{version}/Linetta-macos.app.tar.gz"
   name "Linetta"
