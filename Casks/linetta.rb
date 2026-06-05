@@ -1,6 +1,6 @@
 cask "linetta" do
-  version "0.4.3"
-  sha256 "bd1422c15016272126cd0fb6a9c7e4e7f44cc4a41665e9c08f5a94db88af382c"
+  version "0.4.4"
+  sha256 "6241bcbd57d44c83ba65dbf7eeccbfc667bbdb97477d65a0d7de65bfa5706c26"
 
   url "https://github.com/devlikebear/linetta/releases/download/v#{version}/Linetta-macos.app.tar.gz"
   name "Linetta"
@@ -17,12 +17,16 @@ cask "linetta" do
 
   app "Linetta.app"
 
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Linetta.app"],
+                   sudo: false
+  end
+
   zap trash: "~/Library/Application Support/com.devlikebear.linetta"
 
   caveats <<~CAVEATS
-    Linetta is ad-hoc signed and not notarized, so macOS Gatekeeper may block
-    it on first launch. To allow it to run, clear the quarantine attribute:
-
-      xattr -dr com.apple.quarantine "#{appdir}/Linetta.app"
+    Linetta is not notarized yet. This cask clears the quarantine
+    attribute after install so macOS can launch the app.
   CAVEATS
 end
