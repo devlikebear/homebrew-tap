@@ -1,6 +1,6 @@
 cask "linetta" do
-  version "0.4.23"
-  sha256 "7a06d5b0525b2bdacde4cba9f81a053a4d87a02397a26c7fc34ca5949abade95"
+  version "0.4.24"
+  sha256 "54d09cc34ba6bd70bd1cbb8d98854a008ee18986da71597009ab6638b65a6562"
 
   url "https://github.com/devlikebear/linetta/releases/download/v#{version}/Linetta-macos.app.tar.gz"
   name "Linetta"
@@ -17,16 +17,5 @@ cask "linetta" do
 
   app "Linetta.app"
 
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Linetta.app"],
-                   sudo: false
-  end
-
   zap trash: "~/Library/Application Support/com.devlikebear.linetta"
-
-  caveats <<~CAVEATS
-    Linetta is not notarized yet. This cask clears the quarantine
-    attribute after install so macOS can launch the app.
-  CAVEATS
 end
