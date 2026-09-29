@@ -1,9 +1,9 @@
 class BreakReminder < Formula
   desc "Smart work/break cycle enforcer for macOS with guided breaks and AI integration"
   homepage "https://github.com/devlikebear/break-reminder"
-  url "https://github.com/devlikebear/break-reminder/releases/download/v0.15.1/break-reminder-v0.15.1-darwin-arm64.tar.gz"
-  version "0.15.1"
-  sha256 "ac00503d0df40924e75b5e08b8d61f0b5d011c8ab0071cf25878b4168a7a81b2"
+  url "https://github.com/devlikebear/break-reminder/releases/download/v0.16.0/break-reminder-v0.16.0-darwin-arm64.tar.gz"
+  version "0.16.0"
+  sha256 "86501e818a15b7ce6ad99550849235baa075a22f697a52bcc70ae470f426624b"
   license "MIT"
 
   depends_on :macos
@@ -18,7 +18,7 @@ class BreakReminder < Formula
   end
 
   def post_install
-    ohai "Run 'break-reminder service install' to set up timer/menu bar agents and daily automatic updates"
+    ohai "Run 'break-reminder service install' to set up timer/menu bar/time-tools agents and daily automatic updates"
     ohai "Run 'break-reminder doctor' to verify your setup"
     ohai "Run 'break-reminder dashboard' for the TUI dashboard"
     ohai "Optional: run 'break-reminder tts install kittentts' or " \
@@ -29,6 +29,9 @@ class BreakReminder < Formula
     <<~EOS
       To start break-reminder as a background service and enable daily updates:
         break-reminder service install
+
+      After upgrading from a version without time tools, run service install once.
+      Closing the menu bar does not stop active countdowns; service stop does.
 
       Homebrew installations check for updates every day at 04:00.
       To check immediately:
