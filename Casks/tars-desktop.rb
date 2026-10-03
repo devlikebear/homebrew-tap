@@ -1,9 +1,9 @@
 cask "tars-desktop" do
   arch arm: "arm64", intel: "amd64"
 
-  version "0.43.3"
-  sha256 arm:   "f7be04a1065e0e25abe0bedc56599a1a26ded4eea3f3dbea21b3f7d427b8d52d",
-         intel: "6c398f20eaf30e66eb6f16d1c6564de9754fd5981307b969f91b5ee87fc60912"
+  version "0.43.4"
+  sha256 arm:   "37a4609ea4c8f206cce8dc7b1110752452c02db69109f610c694fd2b0c3ac25f",
+         intel: "338b90a53ae9240ec6f9e1999086901982dc3b5aa908d3919040da539838cc7c"
 
   url "https://github.com/devlikebear/tars/releases/download/v#{version}/tars-desktop_#{version}_darwin_#{arch}.tar.gz"
   name "TARS"
