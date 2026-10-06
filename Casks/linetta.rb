@@ -1,6 +1,6 @@
 cask "linetta" do
-  version "1.4.0"
-  sha256 "6d407d9635ad3d22cc252b6fd1fc7fcd66d1824bc72f55a585dc97c2d4c857d1"
+  version "1.5.0"
+  sha256 "c345e2e8c06e44da5a6c481432d48d11205c9495065d3b24006a6e8ef9df73af"
 
   url "https://github.com/devlikebear/linetta/releases/download/v#{version}/Linetta-macos.app.tar.gz"
   name "Linetta"
@@ -11,6 +11,9 @@ cask "linetta" do
     url :url
     strategy :github_latest
   end
+
+  # The app updates itself from GitHub releases.
+  auto_updates true
 
   # The macOS build is published for Apple Silicon only.
   depends_on arch: :arm64
